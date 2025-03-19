@@ -24,8 +24,8 @@ A Python-based solution for the Ball Sort Puzzle game, implementing a bruteforce
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ball-sort-puzzle-solver.git
-cd ball-sort-puzzle-solver
+git clone https://github.com/barsham/BallSortSolver.git
+cd BallSortSolver
 ```
 
 2. Install the required packages:
@@ -153,6 +153,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by [Barsham](https://github.com/barsham) using [Replit](https://replit.com/) in 20 minutes
 
 Don't forget to ⭐ this repository if you found it helpful!

@@ -8,18 +8,18 @@ from visualizer import Visualizer
 def get_test_configuration() -> list:
     """Returns a test configuration with 12 colors, 4 balls each, distributed across 14 tubes"""
     return [
-        reversed(['P', 'LP', 'PU', 'W']),  # Tube 0
-        reversed(['LG', 'B', 'O', 'P']),  # Tube 1
-        reversed(['O', 'G', 'DG', 'W']),  # Tube 2
-        reversed(['LG', 'R', 'DG', 'DP']),  # Tube 3
-        reversed(['DP', 'W', 'DP', 'W']),  # Tube 4
-        reversed(['PU', 'O', 'DP', 'LP']),  # Tube 5
-        reversed(['R', 'G', 'LP', 'B']),  # Tube 6
-        reversed(['Y', 'PU', 'DG', 'LG']),  # Tube 7
-        reversed(['LG', 'Y', 'DG', 'B']),  # Tube 8
-        reversed(['B', 'G', 'R', 'G']),  # Tube 9
-        reversed(['P', 'O', 'R', 'P']),  # Tube 10
-        reversed(['LP', 'Y', 'PU', 'Y']),  # Tube 11
+        list(reversed(['P', 'LP', 'PU', 'W'])),  # Tube 0
+        list(reversed(['LG', 'B', 'O', 'P'])),  # Tube 1
+        list(reversed(['O', 'G', 'DG', 'W'])),  # Tube 2
+        list(reversed(['LG', 'R', 'DG', 'DP'])),  # Tube 3
+        list(reversed(['DP', 'W', 'DP', 'W'])),  # Tube 4
+        list(reversed(['PU', 'O', 'DP', 'LP'])),  # Tube 5
+        list(reversed(['R', 'G', 'LP', 'B'])),  # Tube 6
+        list(reversed(['Y', 'PU', 'DG', 'LG'])),  # Tube 7
+        list(reversed(['LG', 'Y', 'DG', 'B'])),  # Tube 8
+        list(reversed(['B', 'G', 'R', 'G'])),  # Tube 9
+        list(reversed(['P', 'O', 'R', 'P'])),  # Tube 10
+        list(reversed(['LP', 'Y', 'PU', 'Y'])),  # Tube 11
         [],  # Empty tube for moves
         []  # Empty tube for moves
     ]

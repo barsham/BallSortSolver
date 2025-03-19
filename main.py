@@ -6,7 +6,7 @@ import sys
 def parse_input() -> list:
     tubes = []
     visualizer = Visualizer()
-    tube_count = 15
+    tube_count = 14  # Changed from 15 to 14 tubes
 
     print(f"Enter the contents of {tube_count} tubes (use capital letters for colors, empty for blank tubes):")
     print("Available colors: R(ed), B(lue), G(reen), Y(ellow), P(ink), C(yan), W(hite), O(range), V(iolet), M(agenta)")

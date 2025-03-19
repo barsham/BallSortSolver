@@ -45,6 +45,10 @@ class BallSort:
                 color_count[ball] = color_count.get(ball, 0) + 1
 
         # Each color should appear exactly 4 times
+        max_colors = 12  # Maximum number of colors allowed
+        if len(color_count) > max_colors:
+            raise ValueError(f"Too many colors! Maximum allowed is {max_colors} colors")
+
         for color, count in color_count.items():
             if count != 4:
                 raise ValueError(f"Invalid initial state: Color {color} appears {count} times (should be 4)")

@@ -27,7 +27,7 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python main.py --test"
+args = "python main.py --simple-test"
 
 [deployment]
-run = ["sh", "-c", "python main.py --test"]
+run = ["sh", "-c", "python main.py --simple-test"]

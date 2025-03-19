@@ -25,6 +25,18 @@ def get_test_configuration() -> list:
     ]
 
 
+def get_simple_test_configuration() -> list:
+    """Returns a simple test configuration with 4 colors, 4 balls each, distributed across 6 tubes"""
+    return [
+        list(reversed(['R', 'B', 'G', 'Y'])),  # Tube 0
+        list(reversed(['G', 'Y', 'R', 'B'])),  # Tube 1
+        list(reversed(['B', 'R', 'Y', 'G'])),  # Tube 2
+        list(reversed(['Y', 'G', 'B', 'R'])),  # Tube 3
+        [],  # Empty tube for moves
+        []   # Empty tube for moves
+    ]
+
+
 def parse_input() -> list:
     tubes = []
     visualizer = Visualizer()
@@ -85,13 +97,21 @@ def main():
     parser.add_argument('--test',
                         action='store_true',
                         help='Run with test configuration')
+    parser.add_argument('--simple-test',
+                        action='store_true',
+                        help='Run with simple test configuration (6 tubes)')
     args = parser.parse_args()
 
     visualizer = Visualizer()
 
     try:
         # Get input or use test configuration
-        tubes = get_test_configuration() if args.test else parse_input()
+        if args.simple_test:
+            tubes = get_simple_test_configuration()
+        elif args.test:
+            tubes = get_test_configuration()
+        else:
+            tubes = parse_input()
 
         # Create initial state
         try:

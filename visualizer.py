@@ -9,16 +9,18 @@ class Visualizer:
     def __init__(self):
         self.console = Console()
         self.color_map = {
-            'R': '[red]●[/red]',
-            'B': '[blue]●[/blue]',
-            'G': '[green]●[/green]',
-            'Y': '[yellow]●[/yellow]',
-            'P': '[magenta]●[/magenta]',
-            'C': '[cyan]●[/cyan]',
-            'W': '[white]●[/white]',
-            'O': '[orange1]●[/orange1]',
-            'V': '[purple]●[/purple]',
-            'M': '[magenta2]●[/magenta2]'
+            'P': '[magenta]●[/magenta]',      # Pink
+            'LP': '[purple]●[/purple]',        # Light Purple
+            'PU': '[magenta2]●[/magenta2]',   # Purple
+            'W': '[white]●[/white]',          # White
+            'LG': '[green1]●[/green1]',       # Light Green
+            'B': '[blue]●[/blue]',            # Blue
+            'O': '[orange1]●[/orange1]',      # Orange
+            'G': '[green]●[/green]',          # Green
+            'R': '[red]●[/red]',              # Red
+            'DP': '[purple4]●[/purple4]',     # Dark Purple
+            'Y': '[yellow]●[/yellow]',        # Yellow
+            'DG': '[dark_green]●[/dark_green]' # Dark Green
         }
 
     def display_state(self, state: BallSort, step: Optional[int] = None):
@@ -26,7 +28,7 @@ class Visualizer:
 
         # Add columns for each tube
         for _ in range(len(state.tubes)):
-            table.add_column(justify="center", width=3)
+            table.add_column(justify="center", width=4)  # Increased width to 4 for 2-letter colors
 
         # Create rows (from bottom to top)
         max_height = 4  # Maximum number of balls in a tube

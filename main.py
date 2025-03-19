@@ -4,34 +4,44 @@ from ball_sort import BallSort
 from solver import Solver
 from visualizer import Visualizer
 
+
 def get_test_configuration() -> list:
     """Returns a test configuration with 12 colors, 4 balls each, distributed across 14 tubes"""
     return [
-        ['P', 'LP', 'PU', 'W'],    # Tube 0
-        ['LG', 'B', 'O', 'G'],     # Tube 1
-        ['R', 'DP', 'Y', 'DG'],    # Tube 2
-        ['P', 'LP', 'PU', 'W'],    # Tube 3
-        ['LG', 'B', 'O', 'G'],     # Tube 4
-        ['R', 'DP', 'Y', 'DG'],    # Tube 5
-        ['P', 'LP', 'PU', 'W'],    # Tube 6
-        ['LG', 'B', 'O', 'G'],     # Tube 7
-        ['R', 'DP', 'Y', 'DG'],    # Tube 8
-        ['P', 'LP', 'PU', 'W'],    # Tube 9
-        ['LG', 'B', 'O', 'G'],     # Tube 10
-        ['R', 'DP', 'Y', 'DG'],    # Tube 11
-        [],                         # Empty tube for moves
-        []                          # Empty tube for moves
+        reversed(['P', 'LP', 'PU', 'W']),  # Tube 0
+        reversed(['LG', 'B', 'O', 'P']),  # Tube 1
+        reversed(['O', 'G', 'DG', 'W']),  # Tube 2
+        reversed(['LG', 'R', 'DG', 'DP']),  # Tube 3
+        reversed(['DP', 'W', 'DP', 'W']),  # Tube 4
+        reversed(['PU', 'O', 'DP', 'LP']),  # Tube 5
+        reversed(['R', 'G', 'LP', 'B']),  # Tube 6
+        reversed(['Y', 'PU', 'DG', 'LG']),  # Tube 7
+        reversed(['LG', 'Y', 'DG', 'B']),  # Tube 8
+        reversed(['B', 'G', 'R', 'G']),  # Tube 9
+        reversed(['P', 'O', 'R', 'P']),  # Tube 10
+        reversed(['LP', 'Y', 'PU', 'Y']),  # Tube 11
+        [],  # Empty tube for moves
+        []  # Empty tube for moves
     ]
+
 
 def parse_input() -> list:
     tubes = []
     visualizer = Visualizer()
     tube_count = 14  # Changed from 15 to 14 tubes
-    valid_colors = {'P', 'LP', 'PU', 'W', 'LG', 'B', 'O', 'G', 'R', 'DP', 'Y', 'DG'}
+    valid_colors = {
+        'P', 'LP', 'PU', 'W', 'LG', 'B', 'O', 'G', 'R', 'DP', 'Y', 'DG'
+    }
 
-    print(f"Enter the contents of {tube_count} tubes (use capital letters for colors, empty for blank tubes):")
-    print("Available colors: P(ink), LP(Light Purple), PU(rple), W(hite), LG(Light Green),")
-    print("                 B(lue), O(range), G(reen), R(ed), DP(Dark Purple), Y(ellow), DG(Dark Green)")
+    print(
+        f"Enter the contents of {tube_count} tubes (use capital letters for colors, empty for blank tubes):"
+    )
+    print(
+        "Available colors: P(ink), LP(Light Purple), PU(rple), W(hite), LG(Light Green),"
+    )
+    print(
+        "                 B(lue), O(range), G(reen), R(ed), DP(Dark Purple), Y(ellow), DG(Dark Green)"
+    )
     print("Example: Enter colors separated by commas like: P,LP,PU,W")
     print("Ctrl+C to cancel input\n")
 
@@ -52,7 +62,9 @@ def parse_input() -> list:
                         continue
 
                     if not all(c in valid_colors for c in colors):
-                        print("Invalid input! Use only the available color codes separated by commas")
+                        print(
+                            "Invalid input! Use only the available color codes separated by commas"
+                        )
                         continue
 
                     tubes.append(colors)
@@ -67,9 +79,12 @@ def parse_input() -> list:
         print("\nInput cancelled by user")
         sys.exit(1)
 
+
 def main():
     parser = argparse.ArgumentParser(description='Ball Sort Puzzle Solver')
-    parser.add_argument('--test', action='store_true', help='Run with test configuration')
+    parser.add_argument('--test',
+                        action='store_true',
+                        help='Run with test configuration')
     args = parser.parse_args()
 
     visualizer = Visualizer()
@@ -101,6 +116,7 @@ def main():
 
     except Exception as e:
         print(f"An unexpected error occurred: {str(e)}")
+
 
 if __name__ == "__main__":
     main()
